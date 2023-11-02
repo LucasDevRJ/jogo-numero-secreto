@@ -4,7 +4,7 @@ let numeroDigitado = prompt("Digite um número entre 0 e 10: ");
 
 //se o número digitado for igual o número sorteado
 if (numeroSecreto == numeroDigitado) {
-    alert("Acertou!! O número secreto é " + numeroSecreto);
+    alert(`Acertou!! O número secreto é ${numeroSecreto}`);
 } else {
-    alert("Errou!! O número secreto é " + numeroSecreto);
+    alert(`Errou!! O número secreto é ${numeroSecreto}`);
 }
