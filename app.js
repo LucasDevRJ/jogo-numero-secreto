@@ -1,6 +1,6 @@
 alert("Bem-vindo ao jogo do número secreto!");
-let numeroSecreto = Math.round(Math.random() * 30);
-console.log(numeroSecreto);
+let numeroLimite = 30;
+let numeroSecreto = Math.round(Math.random() * numeroLimite);
 let numeroDigitado;
 let tentativas = 0;
 
@@ -8,7 +8,7 @@ console.log(`O número digitado é igual ao número secreto: ${numeroSecreto == 
 
 //enquanto o número secreto não for igual ao número digitado
 while (tentativas >= 0) {
-    numeroDigitado = prompt("Digite um número entre 0 e 30: ");
+    numeroDigitado = prompt(`Digite um número entre 0 e ${numeroLimite}: `);
 
     tentativas++;
     //se o número digitado for igual o número secreto
