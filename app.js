@@ -1,9 +1,9 @@
+/*
 alert("Bem-vindo ao jogo do número secreto!");
 let numeroLimite = 30;
 let numeroSecreto = Math.round(Math.random() * numeroLimite);
 let numeroDigitado;
 let tentativas = 0;
-
 console.log(`O número digitado é igual ao número secreto: ${numeroSecreto == numeroDigitado}`);
 
 //enquanto o número secreto não for igual ao número digitado
