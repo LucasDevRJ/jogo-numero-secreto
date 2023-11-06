@@ -1,15 +1,19 @@
 let numeroSecreto = gerarNumeroAleatorio();
+let tentativas = 1;
 console.log(numeroSecreto);
 function verificarChute() {
     let numeroDigitado = Number(document.querySelector("input").value);
     if (numeroDigitado == numeroSecreto) {
+        let foramMaisDeUmaTentativa = tentativas > 1 ? "tentativas" : "tentativa";
+        let mensagem = `Você descobriu o número secreto com ${tentativas} ${foramMaisDeUmaTentativa}!!`;
         exibirTextoNaTela("h1", "Acertou!!");
-        exibirTextoNaTela("p", "Você descobriu o número secreto!!")
+        exibirTextoNaTela("p", mensagem);
     } else if (numeroDigitado > numeroSecreto) {
-        exibirTextoNaTela("p", "Errou!! O número secreto é menor!!")
+        exibirTextoNaTela("p", "Errou!! O número secreto é menor!!");
     } else {
-        exibirTextoNaTela("p", "Errou!! O número secreto é maior!!")
+        exibirTextoNaTela("p", "Errou!! O número secreto é maior!!");
     }
+    tentativas++;
 }
 
 function exibirTextoNaTela(elemento, texto) {
