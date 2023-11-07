@@ -1,6 +1,7 @@
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 console.log(numeroSecreto);
+
 function verificarChute() {
     let numeroDigitado = Number(document.querySelector("input").value);
     if (numeroDigitado == numeroSecreto) {
@@ -8,7 +9,7 @@ function verificarChute() {
         let mensagem = `Você descobriu o número secreto com ${tentativas} ${foramMaisDeUmaTentativa}!!`;
         exibirTextoNaTela("h1", "Acertou!!");
         exibirTextoNaTela("p", mensagem);
-        document.getElementById("reiniciar").removeAttribute("disabled");
+        habilitaEDesabilitaBotoes(true);
     } else if (numeroDigitado > numeroSecreto) {
         exibirTextoNaTela("p", "Errou!! O número secreto é menor!!");
     } else {
@@ -33,6 +34,28 @@ function limparCampo() {
     campo.value = "";
 }
 
-exibirTextoNaTela("h1", "Jogo do Número Secreto");
-exibirTextoNaTela("p", "Escolha um número entre 0 e 50:");
+function reiniciarJogo() {
+    tentativas = 1;
+    numeroSecreto = gerarNumeroAleatorio();
+    habilitaEDesabilitaBotoes();
+    exibeMensagemInicial();
+    console.log(numeroSecreto);
+}
+
+function habilitaEDesabilitaBotoes(novoJogo) {
+    if (novoJogo) {
+        document.getElementById("reiniciar").removeAttribute("disabled");
+        document.getElementById("chutar").setAttribute("disabled", true);
+    } else {
+        document.getElementById("reiniciar").setAttribute("disabled", false);
+        document.getElementById("chutar").removeAttribute("disabled");
+    }
+}
+
+function exibeMensagemInicial() {
+    exibirTextoNaTela("h1", "Jogo do Número Secreto");
+    exibirTextoNaTela("p", "Escolha um número entre 0 e 50:");
+}
+
 gerarNumeroAleatorio();
+exibeMensagemInicial();
