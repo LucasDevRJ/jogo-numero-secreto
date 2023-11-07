@@ -8,12 +8,14 @@ function verificarChute() {
         let mensagem = `Você descobriu o número secreto com ${tentativas} ${foramMaisDeUmaTentativa}!!`;
         exibirTextoNaTela("h1", "Acertou!!");
         exibirTextoNaTela("p", mensagem);
+        document.getElementById("reiniciar").removeAttribute("disabled");
     } else if (numeroDigitado > numeroSecreto) {
         exibirTextoNaTela("p", "Errou!! O número secreto é menor!!");
     } else {
         exibirTextoNaTela("p", "Errou!! O número secreto é maior!!");
     }
     tentativas++;
+    limparCampo();
 }
 
 function exibirTextoNaTela(elemento, texto) {
@@ -24,6 +26,11 @@ function exibirTextoNaTela(elemento, texto) {
 function gerarNumeroAleatorio() {
     let numeroAleatorio = Math.round(Math.random() * 50);
     return numeroAleatorio;
+}
+
+function limparCampo() {
+    campo = document.querySelector("input");
+    campo.value = "";
 }
 
 exibirTextoNaTela("h1", "Jogo do Número Secreto");
