@@ -1,3 +1,4 @@
+let listaDeNumerosSorteados = [];
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 console.log(numeroSecreto);
@@ -26,7 +27,13 @@ function exibirTextoNaTela(elemento, texto) {
 
 function gerarNumeroAleatorio() {
     let numeroAleatorio = Math.round(Math.random() * 50);
-    return numeroAleatorio;
+    if (listaDeNumerosSorteados.includes(numeroAleatorio)) {
+        return gerarNumeroAleatorio();
+    } else {
+        listaDeNumerosSorteados.push(numeroAleatorio);
+        console.log(listaDeNumerosSorteados);
+        return numeroAleatorio;
+    }
 }
 
 function limparCampo() {
