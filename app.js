@@ -14,18 +14,21 @@ function verificarChute() {
         exibirTextoNaTela("h1", "Acertou!!");
         exibirTextoNaTela("p", mensagem);
         habilitaEDesabilitaBotoes(true);
+        somDeErro.play();
     } else if (numeroDigitado > numeroSecreto) {
         exibirTextoNaTela("p", "Errou!! O número secreto é menor!!");
     } else {
         exibirTextoNaTela("p", "Errou!! O número secreto é maior!!");
     }
+    somDeErro.play();
     tentativas++;
     limparCampo();
 }
 
 function exibirTextoNaTela(elemento, texto) {
     let campo = document.querySelector(elemento);
-    campo.innerHTML = texto;
+    campo.innerHTML = texto; 
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate: 1.2});
 }
 
 function gerarNumeroAleatorio() {
